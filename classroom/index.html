@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Broken Heart Shayari</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:black;
+}
+
+/* Background */
+
+.bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url('photo1.jpg');
+    background-size:cover;
+    background-position:center;
+    filter:brightness(35%);
+    animation:zoom 15s infinite alternate;
+}
+
+@keyframes zoom{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.1);
+    }
+}
+
+/* Overlay */
+
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+}
+
+/* Content */
+
+.content{
+
+    position:relative;
+    z-index:10;
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+    padding:20px;
+}
+
+/* Heart */
+
+.heart{
+
+    font-size:100px;
+    animation:beat 1s infinite;
+}
+
+@keyframes beat{
+
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+/* Title */
+
+.title{
+
+    margin-top:20px;
+
+    font-size:70px;
+    color:white;
+
+    text-shadow:0 0 20px crimson;
+}
+
+/* Shayari */
+
+.shayari{
+
+    margin-top:40px;
+
+    color:#eee;
+
+    font-size:30px;
+
+    line-height:1.8;
+
+    max-width:900px;
+
+    animation:fadeText 4s infinite alternate;
+}
+
+@keyframes fadeText{
+
+    from{
+        opacity:0.6;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+/* Button */
+
+button{
+
+    margin-top:50px;
+
+    padding:15px 35px;
+
+    border:none;
+    border-radius:40px;
+
+    background:crimson;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+
+    background:red;
+
+    transform:scale(1.1);
+}
+
+/* Falling Stars */
+
+.star{
+
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    background:white;
+
+    border-radius:50%;
+
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+
+    from{
+        transform:translateY(-100px);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="overlay"></div>
+
+<div class="content">
+
+    <div class="heart">💔</div>
+
+    <div class="title">
+        Broken Memories
+    </div>
+
+    <div class="shayari">
+
+        “I smiled when you left,<br>
+        but my soul cried every night...<br><br>
+
+        Your memories still live<br>
+        inside the silence of my heart...<br><br>
+
+        We promised forever,<br>
+        but forever ended too soon...”
+
+    </div>
+
+    <button onclick="playMusic()">
+
+        ▶ Play Sad Music
+
+    </button>
+
+</div>
+
+<!-- Music -->
+
+<audio id="music" controls loop>
+
+    <source src="song.mp3" type="audio/mp3">
+
+</audio>
+
+<script>
+
+/* Music */
+
+function playMusic(){
+
+    document.getElementById("music").play();
+}
+
+/* Stars */
+
+for(let i=0;i<100;i++){
+
+    let star = document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.left = Math.random()*100 + "vw";
+
+    star.style.animationDuration =
+    (Math.random()*5 + 3) + "s";
+
+    star.style.opacity = Math.random();
+
+    document.body.appendChild(star);
+}
+
+</script>
+
+</body>
+</html>
